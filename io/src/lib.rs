@@ -21,7 +21,7 @@ pub struct PebblesInit {
     pub max_pebbles_per_turn: u32,
 }
 
-#[derive(Debug, Default, Clone, Encode, Decode, TypeInfo)]
+#[derive(Debug, Default, Clone, Encode, Decode, TypeInfo, PartialEq, Eq)]
 pub enum DifficultyLevel {
     #[default]
     Easy,
@@ -39,20 +39,20 @@ pub enum PebblesAction {
     },
 }
 
-#[derive(Debug, Clone, Encode, Decode, TypeInfo)]
+#[derive(Debug, Clone, Encode, Decode, TypeInfo, PartialEq, Eq)]
 pub enum PebblesEvent {
     CounterTurn(u32),
     Won(Player),
 }
 
-#[derive(Debug, Default, Clone, Encode, Decode, TypeInfo)]
+#[derive(Debug, Default, Clone, Encode, Decode, TypeInfo, PartialEq, Eq)]
 pub enum Player {
     #[default]
     User,
     Program,
 }
 
-#[derive(Debug, Default, Clone, Encode, Decode, TypeInfo)]
+#[derive(Debug, Default, Clone, Encode, Decode, TypeInfo, PartialEq, Eq)]
 pub struct GameState {
     pub pebbles_count: u32,
     pub max_pebbles_per_turn: u32,
@@ -60,17 +60,4 @@ pub struct GameState {
     pub difficulty: DifficultyLevel,
     pub first_player: Player,
     pub winner: Option<Player>,
-}
-
-
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
 }

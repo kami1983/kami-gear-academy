@@ -16,4 +16,3 @@ pebbles-game-io.path = "io"
 [dev-dependencies]
 gtest = { git = "https://github.com/gear-tech/gear.git", tag = "v1.4.1" }
 pebbles-game-io.path = "io"
-
